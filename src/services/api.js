@@ -64,6 +64,14 @@ export const authAPI = {
     }),
 
     verify: () => apiCall('/auth/verify'),
+    forgotPassword: (email) => apiCall('/auth/forgot-password', {
+        method: 'POST',
+        body: JSON.stringify({ email }),
+    }),
+    resetPassword: (email, newPassword) => apiCall('/auth/reset-password', {
+        method: 'POST',
+        body: JSON.stringify({ email, newPassword }),
+    }),
 };
 
 // Parking Lot APIs
@@ -149,6 +157,10 @@ export const userAPI = {
 
     removeSavedPlace: (id, placeId) => apiCall(`/users/${id}/saved-places/${placeId}`, {
         method: 'DELETE',
+    }),
+    changePassword: (id, currentPassword, newPassword) => apiCall(`/users/${id}/change-password`, {
+        method: 'POST',
+        body: JSON.stringify({ currentPassword, newPassword }),
     }),
 };
 

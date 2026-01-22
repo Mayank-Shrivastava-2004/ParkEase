@@ -124,4 +124,43 @@ router.get('/verify', async (req, res) => {
     }
 });
 
+// Forgot Password
+router.post('/forgot-password', async (req, res) => {
+    try {
+        const { email } = req.body;
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ error: 'User with this email does not exist' });
+        }
+
+        // In a real app, generate a reset token, save to DB, and send email
+        // For this internship project, we'll return a success message
+        res.json({ message: 'Password reset link sent to your email' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to process forgot password', message: error.message });
+    }
+});
+
+// Reset Password
+router.post('/reset-password', async (req, res) => {
+    try {
+        const { email, newPassword } = req.body;
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        // Hash new password
+        const hashedPassword = await bcrypt.hash(newPassword, 10);
+        user.password = hashedPassword;
+        await user.save();
+
+        res.json({ message: 'Password reset successful' });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to reset password', message: error.message });
+    }
+});
+
 module.exports = router;
