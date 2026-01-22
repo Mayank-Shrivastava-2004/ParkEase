@@ -1,7 +1,7 @@
 // API Configuration
 // Use your computer's IP address if testing on a real device or emulator
 // Example: const API_BASE_URL = 'http://192.168.1.10:5000/api'; 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'http://172.29.86.172:5000/api';
 
 // Helper function to get auth token
 const getAuthToken = () => {
