@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 import AuthLayout from '../components/AuthLayout';
 import GradientButton from '../components/GradientButton';
 import { COLORS } from '../constants/colors';
+import { authAPI } from '../services/api';
 
 const RegisterScreen = ({ route, navigation }) => {
     const { title, panel } = route.params;
@@ -11,8 +12,9 @@ const RegisterScreen = ({ route, navigation }) => {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
         if (!name || !email || !phone || !password || !confirmPassword) {
             alert('Please fill all fields');
             return;
@@ -21,8 +23,25 @@ const RegisterScreen = ({ route, navigation }) => {
             alert('Passwords do not match');
             return;
         }
-        // Proceed with registration
-        navigation.goBack();
+
+        setLoading(true);
+        try {
+            const userData = {
+                name,
+                email,
+                phone,
+                password,
+                role: panel === 'Admin Panel' ? 'admin' : (panel === 'Driver Panel' ? 'driver' : 'provider')
+            };
+
+            const response = await authAPI.register(userData);
+            alert('Registration Successful! Please login.');
+            navigation.navigate(panel === 'Admin Panel' ? 'AdminLogin' : (panel === 'Driver Panel' ? 'DriverLogin' : 'ProviderLogin'));
+        } catch (error) {
+            alert('Registration Failed: ' + error.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (

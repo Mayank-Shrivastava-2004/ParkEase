@@ -3,11 +3,43 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 import AuthLayout from '../components/AuthLayout';
 import GradientButton from '../components/GradientButton';
 import { COLORS } from '../constants/colors';
+import { authAPI, setAuthToken } from '../services/api';
 
 const LoginScreen = ({ route, navigation }) => {
     const { title, panel, dashboardScreen } = route.params;
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleLogin = async () => {
+        if (!email || !pass) {
+            alert('Please fill all fields');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            const credentials = {
+                email,
+                password: pass,
+                role: panel === 'Admin Panel' ? 'admin' : (panel === 'Driver Panel' ? 'driver' : 'provider')
+            };
+
+            const response = await authAPI.login(credentials);
+
+            // Save token
+            if (response.token) {
+                setAuthToken(response.token);
+            }
+
+            alert('Login Successful!');
+            navigation.navigate(dashboardScreen);
+        } catch (error) {
+            alert('Login Failed: ' + error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <AuthLayout
@@ -46,7 +78,7 @@ const LoginScreen = ({ route, navigation }) => {
 
                 <GradientButton
                     title="Login"
-                    onPress={() => navigation.navigate(dashboardScreen)}
+                    onPress={handleLogin}
                 />
 
                 <View style={styles.footer}>
