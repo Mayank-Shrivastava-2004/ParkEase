@@ -3,22 +3,32 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'reac
 import AuthLayout from '../components/AuthLayout';
 import GradientButton from '../components/GradientButton';
 import { COLORS } from '../constants/colors';
+import { authAPI } from '../services/api';
 
 const ForgotPasswordScreen = ({ route, navigation }) => {
     const { panel } = route.params || { panel: 'Account' };
     const [email, setEmail] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const handleResetPassword = () => {
+    const handleResetPassword = async () => {
         if (!email) {
             Alert.alert("Error", "Please enter your email address");
             return;
         }
-        // Mock reset password logic
-        Alert.alert(
-            "Success",
-            "Password reset link has been sent to your email.",
-            [{ text: "OK", onPress: () => navigation.goBack() }]
-        );
+
+        setLoading(true);
+        try {
+            const response = await authAPI.forgotPassword(email);
+            Alert.alert(
+                "Success",
+                response.message || "Password reset link has been sent to your email.",
+                [{ text: "OK", onPress: () => navigation.goBack() }]
+            );
+        } catch (error) {
+            Alert.alert("Error", "Failed to send reset link: " + error.message);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
