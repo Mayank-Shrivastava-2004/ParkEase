@@ -22,7 +22,10 @@ const ForgotPasswordScreen = ({ route, navigation }) => {
             Alert.alert(
                 "Success",
                 response.message || "Password reset link has been sent to your email.",
-                [{ text: "OK", onPress: () => navigation.goBack() }]
+                [
+                    { text: "Go to Reset", onPress: () => navigation.navigate('ResetPassword', { email }) },
+                    { text: "OK", onPress: () => navigation.goBack() }
+                ]
             );
         } catch (error) {
             Alert.alert("Error", "Failed to send reset link: " + error.message);

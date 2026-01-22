@@ -4,6 +4,7 @@ import PanelSelectionScreen from '../screens/PanelSelectionScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
+import ResetPasswordScreen from '../screens/ResetPasswordScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import AdminDashboardScreen from '../screens/AdminDashboardScreen';
 import DriverDetailsScreen from '../screens/DriverDetailsScreen';
@@ -31,6 +32,7 @@ const AppNavigator = () => {
         <Stack.Navigator screenOptions={{ headerShown: false, cardStyle: { backgroundColor: '#F3F4F6' } }}>
             <Stack.Screen name="PanelSelection" component={PanelSelectionScreen} />
             <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+            <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} />
             <Stack.Screen name="Profile" component={ProfileScreen} />
 
             {/* Admin */}
