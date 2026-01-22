@@ -2,7 +2,7 @@
 
 ## ✅ Successfully Uploaded to GitHub
 
-**Repository:** https://github.com/Mayank-Shrivastava-2004/ParkEaseSmartParkingSpotFinder
+**Repository:** https://github.com/Mayank-Shrivastava-2004/ParkEase
 
 ## 📦 What Was Uploaded
 
@@ -139,10 +139,10 @@ Infosys-ParkEase-Smart-Parking-Spot-Finder/
 
 ## 🔗 Repository Links
 
-- **Main Repository:** https://github.com/Mayank-Shrivastava-2004/ParkEaseSmartParkingSpotFinder
-- **Frontend Code:** https://github.com/Mayank-Shrivastava-2004/ParkEaseSmartParkingSpotFinder/tree/main/frontend
-- **Node.js Backend:** https://github.com/Mayank-Shrivastava-2004/ParkEaseSmartParkingSpotFinder/tree/main/backend-nodejs
-- **Java Backend:** https://github.com/Mayank-Shrivastava-2004/ParkEaseSmartParkingSpotFinder/tree/main/backend
+- **Main Repository:** https://github.com/Mayank-Shrivastava-2004/ParkEase
+- **Frontend Code:** https://github.com/Mayank-Shrivastava-2004/ParkEase/tree/main/frontend
+- **Node.js Backend:** https://github.com/Mayank-Shrivastava-2004/ParkEase/tree/main/backend-nodejs
+- **Java Backend:** https://github.com/Mayank-Shrivastava-2004/ParkEase/tree/main/backend
 
 ## ✅ Verification
 
@@ -150,7 +150,7 @@ You can verify the upload by:
 
 1. **Visit the repository:**
    ```
-   https://github.com/Mayank-Shrivastava-2004/ParkEaseSmartParkingSpotFinder
+   https://github.com/Mayank-Shrivastava-2004/ParkEase
    ```
 
 2. **Check the folders:**
@@ -160,7 +160,7 @@ You can verify the upload by:
 
 3. **Clone and test:**
    ```bash
-   git clone https://github.com/Mayank-Shrivastava-2004/ParkEaseSmartParkingSpotFinder.git
+   git clone https://github.com/Mayank-Shrivastava-2004/ParkEase.git
    cd Infosys-ParkEase-Smart-Parking-Spot-Finder
    ```
 
@@ -168,7 +168,7 @@ You can verify the upload by:
 
 1. **Team members can clone the repository:**
    ```bash
-   git clone https://github.com/Mayank-Shrivastava-2004/ParkEaseSmartParkingSpotFinder.git
+   git clone https://github.com/Mayank-Shrivastava-2004/ParkEase.git
    ```
 
 2. **Install dependencies:**
@@ -210,3 +210,4 @@ You can verify the upload by:
 **Repository Owner:** SubbaLaskhmi  
 **Project:** Infosys ParkEase Smart Parking Spot Finder  
 **Status:** ✅ COMPLETE
+

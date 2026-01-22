@@ -8,11 +8,12 @@ const RegisterScreen = ({ route, navigation }) => {
     const { title, panel } = route.params;
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleRegister = () => {
-        if (!name || !email || !password || !confirmPassword) {
+        if (!name || !email || !phone || !password || !confirmPassword) {
             alert('Please fill all fields');
             return;
         }
@@ -50,6 +51,17 @@ const RegisterScreen = ({ route, navigation }) => {
                         onChangeText={setEmail}
                         keyboardType="email-address"
                         autoCapitalize="none"
+                    />
+                </View>
+
+                <View style={styles.inputContainer}>
+                    <Text style={styles.label}>Phone Number</Text>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="+91 98765 43210"
+                        value={phone}
+                        onChangeText={setPhone}
+                        keyboardType="phone-pad"
                     />
                 </View>
 
@@ -92,7 +104,7 @@ const RegisterScreen = ({ route, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-    form: { gap: 20 },
+    form: { gap: 15 },
     inputContainer: { gap: 8 },
     label: { fontSize: 14, fontWeight: '600', color: COLORS.textMain },
     input: { backgroundColor: '#F9FAFB', borderRadius: 12, padding: 16, fontSize: 16, borderColor: '#F3F4F6', borderWidth: 1 },
