@@ -55,7 +55,7 @@ const RegisterScreen = ({ route, navigation }) => {
                     <Text style={styles.label}>Full Name</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="John Doe"
+                        placeholder="Enter Your Name"
                         value={name}
                         onChangeText={setName}
                     />
@@ -65,7 +65,7 @@ const RegisterScreen = ({ route, navigation }) => {
                     <Text style={styles.label}>Email Address</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="john@example.com"
+                        placeholder="Enter your email"
                         value={email}
                         onChangeText={setEmail}
                         keyboardType="email-address"
@@ -77,7 +77,7 @@ const RegisterScreen = ({ route, navigation }) => {
                     <Text style={styles.label}>Phone Number</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="+91 98765 43210"
+                        placeholder="Enter phone number"
                         value={phone}
                         onChangeText={setPhone}
                         keyboardType="phone-pad"
